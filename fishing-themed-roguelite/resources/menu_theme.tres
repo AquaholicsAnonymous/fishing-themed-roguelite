@@ -1,8 +1,8 @@
-[gd_resource type="Theme" format=3 uid="uid://ihpup8pcitxf"]
+[gd_resource type="Theme" format=3 uid="uid://qaii8ct3eg7t"]
 
-[ext_resource type="StyleBox" uid="uid://d3g71ssxivbk0" path="res://resources/panel_container_flat_box.tres" id="1_fnlfk"]
-[ext_resource type="StyleBox" uid="uid://dyecr4iub281w" path="res://resources/button_flat_box.tres" id="1_nn6ra"]
-[ext_resource type="FontFile" path="res://assets/fonts/Redaction50-Regular.ttf" id="2_nn6ra"]
+[ext_resource type="StyleBox" uid="uid://bs2ic458a7sxk" path="res://resources/panel_container_flat_box.tres" id="1_fnlfk"]
+[ext_resource type="StyleBox" uid="uid://otkwoyfumj4h" path="res://resources/button_flat_box.tres" id="1_nn6ra"]
+[ext_resource type="FontFile" uid="uid://bsatgy1yaxuq3" path="res://assets/fonts/Redaction50-Regular.ttf" id="2_nn6ra"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6u33h"]
 bg_color = Color(0.3647059, 0.44705883, 0.45882353, 1)

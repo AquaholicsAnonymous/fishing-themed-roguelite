@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://n5bx7kj21yw0"]
+[gd_scene format=3 uid="uid://8tcx4gphxpa5"]
 
 [node name="PlayButton" type="Button" unique_id=790950651]
 custom_minimum_size = Vector2(300, 100)

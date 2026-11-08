@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bvk26ao5xfstb"]
+[gd_scene format=3 uid="uid://lal7mifx14re"]
 
-[ext_resource type="Theme" uid="uid://ihpup8pcitxf" path="res://resources/menu_theme.tres" id="1_ekxnf"]
-[ext_resource type="PackedScene" uid="uid://n5bx7kj21yw0" path="res://user_interface/buttons/play_button.tscn" id="2_bqqt6"]
-[ext_resource type="Script" path="res://user_interface/buttons/QuitButton.cs" id="3_bqqt6"]
+[ext_resource type="Theme" uid="uid://qaii8ct3eg7t" path="res://resources/menu_theme.tres" id="1_ekxnf"]
+[ext_resource type="PackedScene" uid="uid://8tcx4gphxpa5" path="res://user_interface/buttons/play_button.tscn" id="2_bqqt6"]
+[ext_resource type="Script" uid="uid://ehyuxa235brp" path="res://user_interface/buttons/QuitButton.cs" id="3_bqqt6"]
 
 [node name="MainMenu" type="Control" unique_id=305687297]
 layout_mode = 3
