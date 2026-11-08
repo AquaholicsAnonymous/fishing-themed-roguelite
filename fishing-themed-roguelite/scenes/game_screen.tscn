@@ -1,8 +1,36 @@
 [gd_scene format=3 uid="uid://d04iphpirleet"]
 
 [ext_resource type="Script" uid="uid://fw2big824358" path="res://HealthComponent.cs" id="1_t5odh"]
+[ext_resource type="Script" uid="uid://ccpk3u5pfg21w" path="res://scenes/Player.cs" id="2_3uriw"]
+[ext_resource type="Texture2D" uid="uid://b5qac3myl80no" path="res://icon.svg" id="3_dv2sx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jk410"]
+radius = 32.0
+height = 64.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_htmvv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_dv2sx")
+}],
+"loop": 1,
+"name": &"Sample",
+"speed": 5.0
+}]
 
 [node name="GameScreen" type="Node2D" unique_id=1348434135]
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1892440774]
 script = ExtResource("1_t5odh")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1343365003]
+script = ExtResource("2_3uriw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=627204415]
+shape = SubResource("CapsuleShape2D_jk410")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=1936596147]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_htmvv")
+animation = &"Sample"
