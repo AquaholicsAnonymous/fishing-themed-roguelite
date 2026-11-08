@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://fw2big824358" path="res://HealthComponent.cs" id="1_t5odh"]
 [ext_resource type="Script" uid="uid://ccpk3u5pfg21w" path="res://scenes/Player.cs" id="2_3uriw"]
 [ext_resource type="Texture2D" uid="uid://b5qac3myl80no" path="res://icon.svg" id="3_dv2sx"]
+[ext_resource type="Texture2D" uid="uid://cs16aoa7vi7bw" path="res://Art/kkrn_icon_map_3.png" id="4_dv2sx"]
+[ext_resource type="Script" uid="uid://budbhahi4ghao" path="res://scenes/AreaSelection.cs" id="4_rxmqw"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jk410"]
 radius = 32.0
@@ -19,12 +21,15 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htmvv"]
+
 [node name="GameScreen" type="Node2D" unique_id=1348434135]
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1892440774]
 script = ExtResource("1_t5odh")
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1343365003]
+position = Vector2(600, 500)
 script = ExtResource("2_3uriw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=627204415]
@@ -34,3 +39,57 @@ shape = SubResource("CapsuleShape2D_jk410")
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_htmvv")
 animation = &"Sample"
+
+[node name="AreaSelection" type="Area2D" parent="." unique_id=588325954]
+position = Vector2(600, 330)
+script = ExtResource("4_rxmqw")
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaSelection" unique_id=2073088045]
+position = Vector2(0, -225)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_dv2sx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaSelection" unique_id=1652792379]
+position = Vector2(0, -225)
+scale = Vector2(2.715, 2.715)
+shape = SubResource("RectangleShape2D_htmvv")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1453946992]
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1115104320]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = -64.0
+offset_right = 54.5
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=1802695502]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=928751858]
+layout_mode = 2
+text = "Choose a map"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1236586657]
+layout_mode = 2
+text = "PP4"
+
+[node name="Button2" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=448675111]
+layout_mode = 2
+text = "To be added"
+
+[node name="Button3" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1231078487]
+layout_mode = 2
+text = "To be added"
+
+[connection signal="body_entered" from="AreaSelection" to="AreaSelection" method="OnBodyEntered"]
+[connection signal="body_exited" from="AreaSelection" to="AreaSelection" method="OnBodyExited"]

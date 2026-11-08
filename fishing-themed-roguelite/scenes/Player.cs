@@ -11,10 +11,10 @@ public partial class Player : CharacterBody2D
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.
-		if (!IsOnFloor())
+		/*if (!IsOnFloor())
 		{
 			velocity += GetGravity() * (float)delta;
-		}
+		}*/
 
 		// Handle Jump.
 		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
