@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dxpu37s0hwbp6"]
+
+[ext_resource type="Script" uid="uid://du2etwk25bqoq" path="res://HeartBar.cs" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://j6i4hsit8oqs" path="res://assets/hud/hud_heartFull.png" id="2_5ysmq"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1636802346]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=586384238]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="HeartBar" type="HBoxContainer" parent="MarginContainer" unique_id=1457912952]
+layout_mode = 2
+theme_override_constants/separation = 5
+script = ExtResource("1_oo0fn")
+
+[node name="1" type="TextureRect" parent="MarginContainer/HeartBar" unique_id=106299057]
+layout_mode = 2
+texture = ExtResource("2_5ysmq")
+
+[node name="2" type="TextureRect" parent="MarginContainer/HeartBar" unique_id=584139606]
+layout_mode = 2
+texture = ExtResource("2_5ysmq")
+
+[node name="3" type="TextureRect" parent="MarginContainer/HeartBar" unique_id=307151861]
+layout_mode = 2
+texture = ExtResource("2_5ysmq")
