@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d04iphpirleet"]
+
+[ext_resource type="Script" uid="uid://fw2big824358" path="res://HealthComponent.cs" id="1_t5odh"]
+
+[node name="GameScreen" type="Node2D" unique_id=1348434135]
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1892440774]
+script = ExtResource("1_t5odh")
