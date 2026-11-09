@@ -10,7 +10,10 @@ public partial class AreaSelection : Area2D
 	[Export]
 	private Label Prompt;
 
-	bool IsPlayerInArea = false;
+	[Export]
+	private Player Player;
+
+	private bool IsPlayerInArea = false;
 
 	private void OnBodyEntered(Node2D body){
 		if (body is Player)
@@ -34,16 +37,21 @@ public partial class AreaSelection : Area2D
 		{
 			PanelContainer.Visible = true;
 			Prompt.Visible = false;
+			Player.IsPlayerMovable = false;
 		}
-		
+
+
 	}
 
 	private void OnCancelPressed(){
 		PanelContainer.Visible = false;
+		Player.IsPlayerMovable = true;
 		if (IsPlayerInArea)
 		{
 			Prompt.Visible = true;
 		}
 	}
 
+	private void OnPP4Pressed(){
+	}
 }

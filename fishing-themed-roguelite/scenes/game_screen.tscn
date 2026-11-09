@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b5qac3myl80no" path="res://icon.svg" id="3_dv2sx"]
 [ext_resource type="Texture2D" uid="uid://cs16aoa7vi7bw" path="res://Art/kkrn_icon_map_3.png" id="4_dv2sx"]
 [ext_resource type="Script" uid="uid://budbhahi4ghao" path="res://scenes/AreaSelection.cs" id="4_rxmqw"]
+[ext_resource type="Theme" uid="uid://qaii8ct3eg7t" path="res://resources/menu_theme.tres" id="6_1urxi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jk410"]
 radius = 32.0
@@ -41,11 +42,12 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_htmvv")
 animation = &"Sample"
 
-[node name="AreaSelection" type="Area2D" parent="." unique_id=588325954 node_paths=PackedStringArray("PanelContainer", "Prompt")]
+[node name="AreaSelection" type="Area2D" parent="." unique_id=588325954 node_paths=PackedStringArray("PanelContainer", "Prompt", "Player")]
 position = Vector2(600, 330)
 script = ExtResource("4_rxmqw")
 PanelContainer = NodePath("../CanvasLayer/PanelContainer")
 Prompt = NodePath("../CanvasLayer/Prompt")
+Player = NodePath("../Player")
 
 [node name="Sprite2D" type="Sprite2D" parent="AreaSelection" unique_id=2073088045]
 position = Vector2(0, -225)
@@ -61,41 +63,49 @@ shape = SubResource("RectangleShape2D_htmvv")
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer" unique_id=1115104320]
 visible = false
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.532
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.532
 anchor_bottom = 0.5
-offset_left = -54.5
-offset_top = -64.0
-offset_right = 54.5
-offset_bottom = 64.0
+offset_left = -160.86401
+offset_top = -112.0
+offset_right = 65.13599
+offset_bottom = 139.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer" unique_id=1802695502]
+texture_filter = 2
 layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=928751858]
 layout_mode = 2
+theme = ExtResource("6_1urxi")
+theme_type_variation = &"GraphFrameTitleLabel"
 text = "Choose a map"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1236586657]
+[node name="PP4" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1236586657]
 layout_mode = 2
+theme = ExtResource("6_1urxi")
 text = "PP4"
 
 [node name="Button2" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=448675111]
 layout_mode = 2
+theme = ExtResource("6_1urxi")
 text = "To be added"
 
 [node name="Button3" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1231078487]
 layout_mode = 2
+theme = ExtResource("6_1urxi")
 text = "To be added"
 
 [node name="Cancel" type="Button" parent="CanvasLayer/PanelContainer/VBoxContainer" unique_id=1872840097]
 layout_mode = 2
+theme = ExtResource("6_1urxi")
+text = "Cancel"
 
 [node name="Prompt" type="Label" parent="CanvasLayer" unique_id=1802741052]
 visible = false
@@ -114,3 +124,5 @@ vertical_alignment = 1
 
 [connection signal="body_entered" from="AreaSelection" to="AreaSelection" method="OnBodyEntered"]
 [connection signal="body_exited" from="AreaSelection" to="AreaSelection" method="OnBodyExited"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/PP4" to="AreaSelection" method="OnPP4Pressed"]
+[connection signal="pressed" from="CanvasLayer/PanelContainer/VBoxContainer/Cancel" to="AreaSelection" method="OnCancelPressed"]

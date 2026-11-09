@@ -5,9 +5,15 @@ public partial class Player : CharacterBody2D
 {
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
+	public bool IsPlayerMovable = true;
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (!IsPlayerMovable)
+		{
+			Velocity = Vector2.Zero;
+			return;
+		}
 		Vector2 velocity = Velocity;
 
 		// Add the gravity.
