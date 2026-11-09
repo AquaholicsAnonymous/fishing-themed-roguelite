@@ -2,14 +2,48 @@ using Godot;
 using System;
 
 public partial class AreaSelection : Area2D
-{
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
+{	
+
+	[Export]
+	private PanelContainer PanelContainer;
+
+	[Export]
+	private Label Prompt;
+
+	bool IsPlayerInArea = false;
+
+	private void OnBodyEntered(Node2D body){
+		if (body is Player)
+		{
+			IsPlayerInArea = true;
+			Prompt.Visible = true;
+		}
+	}
+	
+	private void OnBodyExited(Node2D body){
+		if (body is Player)
+		{
+			IsPlayerInArea = false;
+			Prompt.Visible = false;
+		}
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		if (IsPlayerInArea && Input.IsActionJustPressed("interact"))
+		{
+			PanelContainer.Visible = true;
+			Prompt.Visible = false;
+		}
+		
 	}
+
+	private void OnCancelPressed(){
+		PanelContainer.Visible = false;
+		if (IsPlayerInArea)
+		{
+			Prompt.Visible = true;
+		}
+	}
+
 }
