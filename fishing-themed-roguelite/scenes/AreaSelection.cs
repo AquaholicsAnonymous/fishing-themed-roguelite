@@ -53,5 +53,9 @@ public partial class AreaSelection : Area2D
 	}
 
 	private void OnPP4Pressed(){
+		Error result = GetTree().ChangeSceneToFile("res://scenes/game_loop.tscn");
+		if (result != Error.Ok){
+			GD.PushError($"Can't Open Game Loop: {result}");
+		}
 	}
 }

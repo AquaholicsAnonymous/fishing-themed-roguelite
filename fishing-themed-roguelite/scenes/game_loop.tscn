@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://t38v3k8ndprp"]
+
+[ext_resource type="Script" uid="uid://44h87gm3tjxq" path="res://scenes/GameLoop.cs" id="1_17ir4"]
+[ext_resource type="Script" uid="uid://ccpk3u5pfg21w" path="res://scenes/Player.cs" id="1_e1wa2"]
+[ext_resource type="Texture2D" uid="uid://b5qac3myl80no" path="res://icon.svg" id="2_43akg"]
+[ext_resource type="Script" uid="uid://fw2big824358" path="res://HealthComponent.cs" id="3_g34oh"]
+[ext_resource type="PackedScene" uid="uid://dxpu37s0hwbp6" path="res://scenes/hud.tscn" id="4_17ir4"]
+[ext_resource type="Script" uid="uid://bysytto18ncj1" path="res://scenes/Enemy.cs" id="4_85pk6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g34oh"]
+radius = 32.0
+height = 64.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_17ir4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_43akg")
+}],
+"loop": 1,
+"name": &"Sample",
+"speed": 5.0
+}]
+
+[node name="GameLoop" type="Node2D" unique_id=1384273413]
+script = ExtResource("1_17ir4")
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=203150093]
+position = Vector2(600, 500)
+script = ExtResource("1_e1wa2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1954386223]
+shape = SubResource("CapsuleShape2D_g34oh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player" unique_id=2127198327]
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_17ir4")
+animation = &"Sample"
+
+[node name="Enemy" type="CharacterBody2D" parent="." unique_id=1807558275]
+position = Vector2(300, 200)
+script = ExtResource("4_85pk6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy" unique_id=463013741]
+shape = SubResource("CapsuleShape2D_g34oh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Enemy" unique_id=1970499534]
+self_modulate = Color(1, 0.03137255, 0.03137255, 1)
+scale = Vector2(0.5, 0.5)
+sprite_frames = SubResource("SpriteFrames_17ir4")
+animation = &"Sample"
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1562913277]
+script = ExtResource("3_g34oh")
+
+[node name="HUD" parent="." unique_id=1636802346 instance=ExtResource("4_17ir4")]
