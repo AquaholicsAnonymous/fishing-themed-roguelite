@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dxpu37s0hwbp6"]
 
-[ext_resource type="Script" uid="uid://du2etwk25bqoq" path="res://HeartBar.cs" id="1_oo0fn"]
+[ext_resource type="Script" uid="uid://du2etwk25bqoq" path="res://scripts/ui/HeartBar.cs" id="1_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://j6i4hsit8oqs" path="res://assets/hud/hud_heartFull.png" id="2_5ysmq"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1636802346]

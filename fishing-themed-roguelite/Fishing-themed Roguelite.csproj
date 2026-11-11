@@ -5,4 +5,10 @@
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <RootNamespace>FishingthemedRoguelite</RootNamespace>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Fishing-themedRoguelite.Tests\**" />
+    <EmbeddedResource Remove="Fishing-themedRoguelite.Tests\**" />
+    <None Remove="Fishing-themedRoguelite.Tests\**" />
+  </ItemGroup>
 </Project>

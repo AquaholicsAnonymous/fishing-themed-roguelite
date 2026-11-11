@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d04iphpirleet"]
 
-[ext_resource type="Script" uid="uid://fw2big824358" path="res://HealthComponent.cs" id="1_t5odh"]
+[ext_resource type="Script" uid="uid://fw2big824358" path="res://scripts/ui/HealthComponent.cs" id="1_t5odh"]
 [ext_resource type="Script" uid="uid://ccpk3u5pfg21w" path="res://scenes/Player.cs" id="2_3uriw"]
 [ext_resource type="Texture2D" uid="uid://b5qac3myl80no" path="res://icon.svg" id="3_dv2sx"]
 [ext_resource type="Texture2D" uid="uid://cs16aoa7vi7bw" path="res://Art/kkrn_icon_map_3.png" id="4_dv2sx"]
