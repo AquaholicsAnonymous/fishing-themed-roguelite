@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dxke6b06q3lga"]
+
+[ext_resource type="Script" uid="uid://c21onbv3k1gpp" path="res://scenes/GameScreenUnitTest.cs" id="1_r61mb"]
+
+[node name="GameScreenUnitTest" type="Node2D" unique_id=1449502726]
+script = ExtResource("1_r61mb")
