@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Fishing-themedRoguelite.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b02e51da2dff32252db3904ad717a7ae6dd9ca73")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3e9f5d4b727df152b4dab26a0558c56350fe7a56")]
 [assembly: System.Reflection.AssemblyProductAttribute("Fishing-themedRoguelite.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Fishing-themedRoguelite.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

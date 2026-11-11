@@ -9,7 +9,7 @@ public partial class GameScreenUnitTest : Node2D
 	public override void _Ready()
 	{
 		TestAreaSelection();
-		PrintTestResults();
+		TestPlayerMovement();
 	}
 
 	private void TestAreaSelection()
@@ -34,6 +34,22 @@ public partial class GameScreenUnitTest : Node2D
 		hub.QueueFree();
 	}
 
+	private void TestPlayerMovement()
+	{
+		PackedScene hubScene = GD.Load<PackedScene>("res://scenes/game_screen.tscn");
+		Node2D hub = hubScene.Instantiate<Node2D>();
+		AddChild(hub);
+		Player player = hub.GetNode<Player>("Player");
+
+		// Test movement
+		player.Velocity = new Vector2(100, 0);
+		player.IsPlayerMovable = false;
+		player._PhysicsProcess(1.0);
+		Check(player.Velocity == Vector2.Zero, "Player does not move when movement is disabled");
+
+		hub.QueueFree();
+	}
+
 	private void Check(bool condition, string testName)
 	{
 		if (condition)
@@ -46,15 +62,5 @@ public partial class GameScreenUnitTest : Node2D
 			_failed++;
 			GD.PushError($"FAIL: {testName}");
 		}
-	}
-
-	private void PrintTestResults()
-	{
-		GD.Print($"TEST RESULTS: {_passed} passed, {_failed} failed.");
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
 	}
 }

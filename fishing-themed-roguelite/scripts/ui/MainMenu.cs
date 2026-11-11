@@ -5,10 +5,10 @@ public partial class MainMenu : Control, ISceneService
 {
 	private MainMenuLogic _logic;
 
-    public override void _Ready()
-    {
-        _logic = new MainMenuLogic(this);
-    }
+	public override void _Ready()
+	{
+		_logic = new MainMenuLogic(this);
+	}
 
 	private void OnPlayButtonPressed() => _logic.Play();
 	private void OnQuitButtonPressed() => _logic.Quit();
