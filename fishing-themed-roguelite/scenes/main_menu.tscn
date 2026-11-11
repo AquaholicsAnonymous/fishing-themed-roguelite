@@ -3,7 +3,6 @@
 [ext_resource type="Theme" uid="uid://qaii8ct3eg7t" path="res://resources/menu_theme.tres" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://8tcx4gphxpa5" path="res://user_interface/buttons/play_button.tscn" id="2_bqqt6"]
 [ext_resource type="Script" uid="uid://c8jhkjbtm73ad" path="res://scenes/MainMenu.cs" id="2_wu84c"]
-[ext_resource type="Script" uid="uid://ehyuxa235brp" path="res://user_interface/buttons/QuitButton.cs" id="3_bqqt6"]
 
 [node name="MainMenu" type="Control" unique_id=305687297]
 layout_mode = 3
@@ -50,7 +49,7 @@ text = "SETTINGS"
 layout_mode = 2
 size_flags_horizontal = 4
 text = "QUIT"
-script = ExtResource("3_bqqt6")
 
 [connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="." method="OnPlayButtonPressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="OnQuitButtonPressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="PanelContainer/VBoxContainer/QuitButton" method="OnPressed"]
