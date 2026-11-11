@@ -3,16 +3,6 @@ using System;
 
 public partial class MainMenu : Control
 {
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-	}
-
 	private void OnPlayButtonPressed()
 	{
 		Error error = GetTree().ChangeSceneToFile("res://scenes/game_screen.tscn");
@@ -20,5 +10,10 @@ public partial class MainMenu : Control
 		{
 			GD.PrintErr($"Failed to change scene: {error}");
 		}
+	}
+
+	private void OnQuitButtonPressed()
+	{
+		GetTree().Quit();
 	}
 }
