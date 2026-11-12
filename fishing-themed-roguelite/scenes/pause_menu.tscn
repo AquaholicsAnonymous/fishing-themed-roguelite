@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://hdtj08lu6n5e"]
+
+[ext_resource type="Script" path="res://scripts/ui/PauseMenu.cs" id="1_n87rw"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1041448445]
+script = ExtResource("1_n87rw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1364564277]
+offset_right = 160.0
+offset_bottom = 90.0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=94797926]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1137669632]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer" unique_id=414046903]
+layout_mode = 2
+text = "Resume"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1829466593]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Resume" to="." method="OnResumeButtonPressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="OnQuitButtonPressed"]
