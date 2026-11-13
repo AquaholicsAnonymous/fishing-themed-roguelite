@@ -2,6 +2,25 @@
 
 [ext_resource type="Script" uid="uid://bvx2tosm0fr7g" path="res://scripts/ui/PauseMenu.cs" id="1_n87rw"]
 [ext_resource type="Theme" uid="uid://qaii8ct3eg7t" path="res://resources/menu_theme.tres" id="2_myx47"]
+[ext_resource type="FontFile" uid="uid://diagb2ubotdml" path="res://assets/fonts/IMFellDWPicaSC-Regular.ttf" id="3_kukqi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ttjy"]
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5d2l8"]
+bg_color = Color(0.21846876, 0.20418942, 0.17087004, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8901961, 0.8117647, 0.7058824, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1041448445]
 process_mode = 3
@@ -18,28 +37,30 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -350.0
-offset_top = -225.0
-offset_right = 350.0
-offset_bottom = 225.0
+offset_left = -373.5
+offset_top = -258.25
+offset_right = 373.5
+offset_bottom = 258.25
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_myx47")
+theme_override_styles/panel = SubResource("StyleBoxFlat_3ttjy")
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=205397797]
 layout_mode = 2
-theme_override_constants/margin_left = 25
+theme_override_constants/margin_left = 150
 theme_override_constants/margin_top = 25
-theme_override_constants/margin_right = 25
-theme_override_constants/margin_bottom = 25
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1137669632]
 layout_mode = 2
 
 [node name="Paused" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1595493605]
 layout_mode = 2
-theme_override_font_sizes/font_size = 50
-text = "Game Paused"
+theme_override_fonts/font = ExtResource("3_kukqi")
+theme_override_font_sizes/font_size = 60
+text = "paused"
 horizontal_alignment = 1
 
 [node name="MenuOptions" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer" unique_id=1993138550]
@@ -48,12 +69,36 @@ size_flags_vertical = 3
 alignment = 1
 
 [node name="Resume" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MenuOptions" unique_id=414046903]
+custom_minimum_size = Vector2(200, 75)
+custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
-text = "Resume"
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("3_kukqi")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5d2l8")
+text = "resume"
+
+[node name="Settings" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MenuOptions" unique_id=1144546686]
+custom_minimum_size = Vector2(0, 75)
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_kukqi")
+text = "settings"
+
+[node name="QuitToMainMenu" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MenuOptions" unique_id=1236393219]
+custom_minimum_size = Vector2(0, 75)
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_kukqi")
+text = "quit to main menu"
 
 [node name="Quit" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/MenuOptions" unique_id=1829466593]
+custom_minimum_size = Vector2(0, 75)
+custom_maximum_size = Vector2(500, -1)
 layout_mode = 2
-text = "Quit"
+theme_override_fonts/font = ExtResource("3_kukqi")
+text = "quit to desktop"
 
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuOptions/Resume" to="." method="OnResumeButtonPressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuOptions/Settings" to="." method="OnSettingsButtonPressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuOptions/QuitToMainMenu" to="." method="OnQuitToMainMenuButtonPressed"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MenuOptions/Quit" to="." method="OnQuitButtonPressed"]

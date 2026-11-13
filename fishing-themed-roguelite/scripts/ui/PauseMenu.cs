@@ -34,6 +34,12 @@ public partial class PauseMenu : CanvasLayer
 		TogglePause();
 	}
 
+	private void OnQuitToMainMenuButtonPressed()
+	{
+		TogglePause();
+		GetTree().ChangeSceneToFile("res://scenes/main_menu.tscn");
+	}
+
 	private void OnQuitButtonPressed()
 	{
 		GetTree().Quit();
