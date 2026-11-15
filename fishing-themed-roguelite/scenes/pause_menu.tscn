@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://hdtj08lu6n5e"]
+[gd_scene format=3 uid="uid://btutm7w5c2c0q"]
 
-[ext_resource type="Script" path="res://scripts/ui/PauseMenu.cs" id="1_n87rw"]
+[ext_resource type="Script" uid="uid://bvx2tosm0fr7g" path="res://scripts/ui/PauseMenu.cs" id="1_n87rw"]
 [ext_resource type="Theme" uid="uid://qaii8ct3eg7t" path="res://resources/menu_theme.tres" id="2_myx47"]
-[ext_resource type="FontFile" path="res://assets/fonts/IMFellDWPicaSC-Regular.ttf" id="3_kukqi"]
+[ext_resource type="FontFile" uid="uid://diagb2ubotdml" path="res://assets/fonts/IMFellDWPicaSC-Regular.ttf" id="3_kukqi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ttjy"]
 corner_radius_top_left = 25
