@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://qaii8ct3eg7t" path="res://resources/menu_theme.tres" id="1_ekxnf"]
 [ext_resource type="PackedScene" uid="uid://8tcx4gphxpa5" path="res://user_interface/buttons/play_button.tscn" id="2_bqqt6"]
-[ext_resource type="Script" uid="uid://c8jhkjbtm73ad" path="res://scenes/MainMenu.cs" id="2_wu84c"]
+[ext_resource type="Script" uid="uid://c8jhkjbtm73ad" path="res://scripts/ui/MainMenu.cs" id="2_wu84c"]
 
 [node name="MainMenu" type="Control" unique_id=305687297]
 layout_mode = 3
@@ -14,42 +14,45 @@ grow_vertical = 2
 theme = ExtResource("1_ekxnf")
 script = ExtResource("2_wu84c")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1268425934]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=899153469]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer" unique_id=1740379687]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1810530688]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
-[node name="Title" type="RichTextLabel" parent="PanelContainer/VBoxContainer" unique_id=1240272896]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=89255347]
 layout_mode = 2
-theme_type_variation = &"RichTextLabelTitle"
-text = "TITLE SCREEN"
-fit_content = true
-autowrap_mode = 0
 
-[node name="PlayButton" parent="PanelContainer/VBoxContainer" unique_id=790950651 instance=ExtResource("2_bqqt6")]
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=584869933]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "TITLE"
+
+[node name="PlayButton" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=790950651 instance=ExtResource("2_bqqt6")]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "PLAY
 "
 
-[node name="SettingsButton" parent="PanelContainer/VBoxContainer" unique_id=527454004 instance=ExtResource("2_bqqt6")]
+[node name="SettingsButton" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=527454004 instance=ExtResource("2_bqqt6")]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "SETTINGS"
 
-[node name="QuitButton" parent="PanelContainer/VBoxContainer" unique_id=600818633 instance=ExtResource("2_bqqt6")]
+[node name="QuitButton" parent="MarginContainer/HBoxContainer/VBoxContainer" unique_id=600818633 instance=ExtResource("2_bqqt6")]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "QUIT"
 
-[connection signal="pressed" from="PanelContainer/VBoxContainer/PlayButton" to="." method="OnPlayButtonPressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="." method="OnQuitButtonPressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/QuitButton" to="PanelContainer/VBoxContainer/QuitButton" method="OnPressed"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/HBoxContainer" unique_id=1923470243]
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/PlayButton" to="." method="OnPlayButtonPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="." method="OnQuitButtonPressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/QuitButton" to="MarginContainer/HBoxContainer/VBoxContainer/QuitButton" method="OnPressed"]
