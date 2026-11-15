@@ -24,6 +24,7 @@ corner_radius_bottom_left = 10
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1041448445]
 process_mode = 3
+layer = 10
 script = ExtResource("1_n87rw")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1364564277]
