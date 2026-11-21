@@ -25,6 +25,12 @@ public partial class PauseMenu : CanvasLayer
 	public void TogglePause()
 	{
 		bool newPauseState = !GetTree().Paused;
+
+		if (newPauseState)
+		{
+			GetTree().CallGroup("closable_menus", nameof(AreaSelectScreen.CloseMenu));
+		}
+
 		GetTree().Paused = newPauseState;
 		Visible = newPauseState;
 	}
