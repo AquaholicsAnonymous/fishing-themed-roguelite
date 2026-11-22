@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 PauseMenu="*uid://btutm7w5c2c0q"
-GameStatsManager="*uid://dqm7031wgyjha"
 LevelManager="*uid://cgp4we41xuuny"
+GameStatsManager="*uid://dqm7031wgyjha"
 
 [display]
 

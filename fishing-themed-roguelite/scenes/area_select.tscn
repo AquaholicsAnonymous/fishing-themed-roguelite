@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ejaaptu0lgwa" path="res://assets/ui/Level-Select-Normal.png" id="2_f32nn"]
 [ext_resource type="Texture2D" uid="uid://cyu0xceulfiiq" path="res://assets/ui/Level-Select-Pressed.png" id="3_07uk4"]
 [ext_resource type="Texture2D" uid="uid://dejbk8110sl3p" path="res://assets/ui/Level-Select-Disabled.png" id="4_sky72"]
-[ext_resource type="Script" uid="uid://b4f7w5gvtm500" path="res://AnimatedTextureButton.cs" id="5_76256"]
+[ext_resource type="Script" uid="uid://b4f7w5gvtm500" path="res://scripts/ui/AnimatedTextureButton.cs" id="5_76256"]
 [ext_resource type="FontFile" uid="uid://diagb2ubotdml" path="res://assets/fonts/IMFellDWPicaSC-Regular.ttf" id="6_f32nn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_07uk4"]

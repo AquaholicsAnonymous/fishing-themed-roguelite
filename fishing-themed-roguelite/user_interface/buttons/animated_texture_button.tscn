@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brlw1smjb8g66"]
 
-[ext_resource type="Script" uid="uid://b4f7w5gvtm500" path="res://AnimatedTextureButton.cs" id="1_3moka"]
+[ext_resource type="Script" uid="uid://b4f7w5gvtm500" path="res://scripts/ui/AnimatedTextureButton.cs" id="1_3moka"]
 
 [node name="AnimatedTextureButton" type="TextureButton" unique_id=1080514099]
 offset_right = 40.0
