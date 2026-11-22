@@ -15,7 +15,7 @@ public partial class GameLoop : Node2D
 	public override void _Ready()
 	{
 		_health = GetNode<HealthComponent>("HealthComponent");
-		_heartBar = GetNode<HeartBar>("HUD/MarginContainer/HeartBar");
+		_heartBar = GetNode<HeartBar>("HUD/MarginContainer/HBoxContainer/HeartBar");
 		_player = GetNode<Player>("Player");
 
 		_health.OnHealthChanged += OnHealthChanged;
