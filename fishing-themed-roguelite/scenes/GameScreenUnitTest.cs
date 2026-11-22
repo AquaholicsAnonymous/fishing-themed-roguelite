@@ -17,7 +17,7 @@ public partial class GameScreenUnitTest : Node2D
 		PackedScene hubScene = GD.Load<PackedScene>("res://scenes/game_screen.tscn");
 		Node2D hub = hubScene.Instantiate<Node2D>();
 		AddChild(hub);
-		AreaSelection areaSelection = hub.GetNode<AreaSelection>("AreaSelection");
+		InteractableMenuZone areaSelection = hub.GetNode<InteractableMenuZone>("AreaSelection");
 		Player player = hub.GetNode<Player>("Player");
 		Label prompt = hub.GetNode<Label>("CanvasLayer/Prompt");
 

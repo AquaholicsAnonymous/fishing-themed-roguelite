@@ -45,9 +45,7 @@ public partial class AreaSelectScreen : CanvasLayer
 	public void CloseMenu()
 	{
 		if(!Visible) return;
-		
 		Visible = false;
-		EmitSignal(SignalName.MenuClosed);
 	}
 
 }

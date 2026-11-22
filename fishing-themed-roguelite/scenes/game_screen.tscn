@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://fw2big824358" path="res://scripts/ui/HealthComponent.cs" id="1_t5odh"]
 [ext_resource type="Script" uid="uid://ccpk3u5pfg21w" path="res://scenes/Player.cs" id="2_3uriw"]
 [ext_resource type="Texture2D" uid="uid://b5qac3myl80no" path="res://icon.svg" id="3_dv2sx"]
+[ext_resource type="Script" uid="uid://qpc64357757b" path="res://scripts/ui/InteractableMenuZone.cs" id="4_1urxi"]
 [ext_resource type="Texture2D" uid="uid://cs16aoa7vi7bw" path="res://Art/kkrn_icon_map_3.png" id="4_dv2sx"]
-[ext_resource type="Script" uid="uid://budbhahi4ghao" path="res://scenes/AreaSelection.cs" id="4_rxmqw"]
 [ext_resource type="PackedScene" uid="uid://dxkrwvo1vdgmf" path="res://scenes/area_select.tscn" id="6_1urxi"]
+[ext_resource type="PackedScene" uid="uid://dku6ffciby1h6" path="res://scenes/upgrade_shop.tscn" id="7_dthvl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jk410"]
 radius = 32.0
@@ -42,12 +43,12 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_htmvv")
 animation = &"Sample"
 
-[node name="AreaSelection" type="Area2D" parent="." unique_id=588325954 node_paths=PackedStringArray("AreaSelectUI", "Prompt", "Player")]
+[node name="AreaSelection" type="Area2D" parent="." unique_id=588325954 node_paths=PackedStringArray("_targetMenuUI", "_prompt", "_player")]
 position = Vector2(600, 330)
-script = ExtResource("4_rxmqw")
-AreaSelectUI = NodePath("../CanvasLayer/AreaSelect")
-Prompt = NodePath("../CanvasLayer/Prompt")
-Player = NodePath("../Player")
+script = ExtResource("4_1urxi")
+_targetMenuUI = NodePath("../CanvasLayer/AreaSelect")
+_prompt = NodePath("../CanvasLayer/Prompt")
+_player = NodePath("../Player")
 
 [node name="Sprite2D" type="Sprite2D" parent="AreaSelection" unique_id=2073088045]
 position = Vector2(0, -225)
@@ -59,9 +60,29 @@ position = Vector2(0.9999981, -221.99997)
 scale = Vector2(2.715, 2.715)
 shape = SubResource("RectangleShape2D_htmvv")
 
+[node name="UpgradeShop" type="Area2D" parent="." unique_id=1467401297 node_paths=PackedStringArray("_targetMenuUI", "_prompt", "_player")]
+position = Vector2(600, 330)
+script = ExtResource("4_1urxi")
+_targetMenuUI = NodePath("../CanvasLayer/UpgradeShop")
+_prompt = NodePath("../CanvasLayer/Prompt2")
+_player = NodePath("../Player")
+
+[node name="Sprite2D" type="Sprite2D" parent="UpgradeShop" unique_id=1056478614]
+position = Vector2(501.00003, 22.49999)
+scale = Vector2(0.107499816, 0.103750035)
+texture = ExtResource("4_dv2sx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpgradeShop" unique_id=242794489]
+position = Vector2(500.00006, 22.000061)
+scale = Vector2(2.715, 2.715)
+shape = SubResource("RectangleShape2D_htmvv")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1453946992]
 
 [node name="AreaSelect" parent="CanvasLayer" unique_id=1358680638 instance=ExtResource("6_1urxi")]
+visible = false
+
+[node name="UpgradeShop" parent="CanvasLayer" unique_id=2003816348 instance=ExtResource("7_dthvl")]
 visible = false
 
 [node name="Prompt" type="Label" parent="CanvasLayer" unique_id=1802741052]
@@ -79,5 +100,22 @@ text = "Press E"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Prompt2" type="Label" parent="CanvasLayer" unique_id=272102199]
+visible = false
+anchors_preset = -1
+anchor_left = 0.51900005
+anchor_top = 0.083000004
+anchor_right = 0.51900005
+anchor_bottom = 0.083000004
+offset_left = 473.11194
+offset_top = 226.216
+offset_right = 528.11194
+offset_bottom = 249.216
+text = "Press E"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="body_entered" from="AreaSelection" to="AreaSelection" method="OnBodyEntered"]
 [connection signal="body_exited" from="AreaSelection" to="AreaSelection" method="OnBodyExited"]
+[connection signal="body_entered" from="UpgradeShop" to="HealthComponent" method="OnBodyEntered"]
+[connection signal="body_exited" from="UpgradeShop" to="HealthComponent" method="OnBodyExited"]

@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 PauseMenu="*uid://btutm7w5c2c0q"
 LevelManager="*uid://cgp4we41xuuny"
 GameStatsManager="*uid://dqm7031wgyjha"
+UpgradesManager="*uid://3ciojui2v5s2"
 
 [display]
 

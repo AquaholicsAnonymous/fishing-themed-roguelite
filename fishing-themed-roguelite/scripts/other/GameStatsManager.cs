@@ -8,7 +8,7 @@ public partial class GameStatsManager : Node
 	public event Action<int> CurrencyChanged;
 	public event Action<int> CatchesChanged;
 
-	public int Currency {get; private set;} = 0;
+	public int Currency {get; private set;} = 100;
 	public int TotalCatches {get; private set;} = 0;
 
     public override void _EnterTree()
