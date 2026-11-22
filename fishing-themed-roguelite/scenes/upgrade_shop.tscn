@@ -1,0 +1,137 @@
+[gd_scene format=3 uid="uid://dku6ffciby1h6"]
+
+[ext_resource type="Script" uid="uid://d1hixdq148swx" path="res://scripts/ui/UpgradeShop.cs" id="1_lt0d2"]
+[ext_resource type="FontFile" uid="uid://diagb2ubotdml" path="res://assets/fonts/IMFellDWPicaSC-Regular.ttf" id="1_v8ny2"]
+[ext_resource type="Texture2D" uid="uid://d17yqlcf6losq" path="res://assets/ui/rod-upgrade.png" id="2_8qunu"]
+[ext_resource type="Script" uid="uid://b4f7w5gvtm500" path="res://scripts/ui/AnimatedTextureButton.cs" id="2_mrt2i"]
+[ext_resource type="Texture2D" uid="uid://pjpe1mhvkcpf" path="res://assets/ui/pressed-upgrade.png" id="3_ybft6"]
+[ext_resource type="Texture2D" uid="uid://k3rgnepxwk6v" path="res://assets/ui/rod-upgrade-disabled.png" id="4_o5je6"]
+[ext_resource type="Texture2D" uid="uid://exw7a53222am" path="res://assets/ui/hook-upgrade.png" id="5_qu5s7"]
+[ext_resource type="Texture2D" uid="uid://c4ar1pp7rkxl0" path="res://assets/ui/shop-upgrade.png" id="6_o5je6"]
+[ext_resource type="Texture2D" uid="uid://buqdliqopa0at" path="res://assets/ui/hook-upgrade-disabled.png" id="7_lt0d2"]
+[ext_resource type="Texture2D" uid="uid://dtl8gvnn2n458" path="res://assets/ui/shop-upgrade-disabled.png" id="9_mndg8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrt2i"]
+bg_color = Color(0.21846876, 0.20418942, 0.17087004, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8901961, 0.8117647, 0.7058824, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhwx6"]
+bg_color = Color(0.21960784, 0.20392157, 0.17254902, 1)
+
+[node name="UpgradeShop" type="Control" unique_id=2003816348 node_paths=PackedStringArray("_rodButton", "_hookButton", "_shopButton", "BackButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lt0d2")
+_rodButton = NodePath("PanelContainer/HBoxContainer/RodUpgrade")
+_hookButton = NodePath("PanelContainer/HBoxContainer/HookUpgrade")
+_shopButton = NodePath("PanelContainer/HBoxContainer/ShopUpgrade")
+BackButton = NodePath("Back")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1682112322]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 647.0
+color = Color(0.40069774, 0.40069774, 0.40069768, 1)
+
+[node name="Back" type="Button" parent="." unique_id=1615215821]
+custom_minimum_size = Vector2(200, 75)
+custom_maximum_size = Vector2(500, -1)
+layout_mode = 0
+offset_left = 21.0
+offset_top = 22.0
+offset_right = 221.0
+offset_bottom = 97.0
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("1_v8ny2")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_mrt2i")
+text = "back"
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1019314992]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_lhwx6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer" unique_id=2099136613]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="RodUpgrade" type="TextureButton" parent="PanelContainer/HBoxContainer" unique_id=324970646]
+layout_mode = 2
+texture_normal = ExtResource("2_8qunu")
+texture_pressed = ExtResource("3_ybft6")
+texture_disabled = ExtResource("4_o5je6")
+script = ExtResource("2_mrt2i")
+metadata/_custom_type_script = "uid://b4f7w5gvtm500"
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/RodUpgrade" unique_id=2087727585]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 171.0
+offset_right = 156.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+theme_override_fonts/font = ExtResource("1_v8ny2")
+theme_override_font_sizes/font_size = 36
+text = "lv 2: 0"
+horizontal_alignment = 1
+
+[node name="HookUpgrade" type="TextureButton" parent="PanelContainer/HBoxContainer" unique_id=496564661]
+layout_mode = 2
+texture_normal = ExtResource("5_qu5s7")
+texture_pressed = ExtResource("3_ybft6")
+texture_disabled = ExtResource("7_lt0d2")
+script = ExtResource("2_mrt2i")
+metadata/_custom_type_script = "uid://b4f7w5gvtm500"
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/HookUpgrade" unique_id=552941508]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 171.0
+offset_right = 156.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+theme_override_fonts/font = ExtResource("1_v8ny2")
+theme_override_font_sizes/font_size = 36
+text = "lv 2: 0"
+horizontal_alignment = 1
+
+[node name="ShopUpgrade" type="TextureButton" parent="PanelContainer/HBoxContainer" unique_id=705860814]
+layout_mode = 2
+texture_normal = ExtResource("6_o5je6")
+texture_pressed = ExtResource("3_ybft6")
+texture_disabled = ExtResource("9_mndg8")
+script = ExtResource("2_mrt2i")
+metadata/_custom_type_script = "uid://b4f7w5gvtm500"
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/ShopUpgrade" unique_id=57019630]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 171.0
+offset_right = 156.0
+offset_bottom = 220.0
+theme_override_colors/font_color = Color(0.1584723, 0.15847233, 0.1584723, 1)
+theme_override_fonts/font = ExtResource("1_v8ny2")
+theme_override_font_sizes/font_size = 36
+text = "lv 2: 0"
+horizontal_alignment = 1

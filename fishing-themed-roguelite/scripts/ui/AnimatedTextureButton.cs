@@ -40,6 +40,8 @@ public partial class AnimatedTextureButton : TextureButton
 
 	private void OnButtonHover()
 	{
+		if(Disabled) return;
+		
 		if (_animationTween != null && GodotObject.IsInstanceValid(_animationTween))
 		{
 			_animationTween.Kill();
@@ -50,7 +52,7 @@ public partial class AnimatedTextureButton : TextureButton
 	}
 
 	private void OnButtonUnHover()
-	{
+	{	
 		if (_animationTween != null && GodotObject.IsInstanceValid(_animationTween))
 		{
 			_animationTween.Kill();
