@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://dxpu37s0hwbp6"]
 
 [ext_resource type="Script" uid="uid://du2etwk25bqoq" path="res://scripts/ui/HeartBar.cs" id="1_oo0fn"]
+[ext_resource type="Script" uid="uid://cm8d0lvmf0v8h" path="res://scenes/Hud.cs" id="1_uo2fv"]
 [ext_resource type="Texture2D" uid="uid://j6i4hsit8oqs" path="res://assets/hud/hud_heartFull.png" id="2_5ysmq"]
 [ext_resource type="Texture2D" uid="uid://75h1utyfsf7p" path="res://assets/hud/hud_coins.png" id="3_5ysmq"]
+[ext_resource type="Texture2D" uid="uid://rv551lxg3f4w" path="res://assets/hud/hud_gem_blue.png" id="5_047uy"]
 
 [sub_resource type="FontVariation" id="FontVariation_lhwx6"]
 
-[node name="HUD" type="CanvasLayer" unique_id=1636802346]
+[node name="HUD" type="CanvasLayer" unique_id=1636802346 node_paths=PackedStringArray("_currencyLabel", "_catchesLabel")]
+script = ExtResource("1_uo2fv")
+_currencyLabel = NodePath("MarginContainer/HBoxContainer/Counts/Count/Background/Number")
+_catchesLabel = NodePath("MarginContainer/HBoxContainer/Counts/Count2/Background/Number")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=586384238]
 anchors_preset = 10
@@ -65,6 +70,44 @@ texture = ExtResource("3_5ysmq")
 stretch_mode = 3
 
 [node name="Number" type="Label" parent="MarginContainer/HBoxContainer/Counts/Count/Background" unique_id=1906435328]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -2.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("FontVariation_lhwx6")
+theme_override_font_sizes/font_size = 30
+text = "10
+"
+vertical_alignment = 1
+
+[node name="Count2" type="MarginContainer" parent="MarginContainer/HBoxContainer/Counts" unique_id=1732373537]
+layout_mode = 2
+
+[node name="Background" type="NinePatchRect" parent="MarginContainer/HBoxContainer/Counts/Count2" unique_id=584907623]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/HBoxContainer/Counts/Count2/Background" unique_id=108421550]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -47.0
+offset_top = -23.5
+offset_bottom = 23.5
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("5_047uy")
+stretch_mode = 3
+
+[node name="Number" type="Label" parent="MarginContainer/HBoxContainer/Counts/Count2/Background" unique_id=1861418783]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
