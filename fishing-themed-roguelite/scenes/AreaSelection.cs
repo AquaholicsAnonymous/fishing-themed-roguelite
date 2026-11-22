@@ -5,7 +5,7 @@ public partial class AreaSelection : Area2D
 {	
 
 	[Export]
-	private PanelContainer PanelContainer;
+	private AreaSelectScreen AreaSelectUI;
 
 	[Export]
 	private Label Prompt;
@@ -14,6 +14,11 @@ public partial class AreaSelection : Area2D
 	private Player Player;
 
 	private bool IsPlayerInArea = false;
+
+    public override void _Ready()
+    {
+        AreaSelectUI.MenuClosed += OnAreaSelectClosed;
+    }
 
 	private void OnBodyEntered(Node2D body){
 		if (body is Player)
@@ -35,7 +40,7 @@ public partial class AreaSelection : Area2D
 	{
 		if (IsPlayerInArea && Input.IsActionJustPressed("interact"))
 		{
-			PanelContainer.Visible = true;
+			AreaSelectUI.Visible = true;
 			Prompt.Visible = false;
 			Player.IsPlayerMovable = false;
 		}
@@ -43,19 +48,11 @@ public partial class AreaSelection : Area2D
 
 	}
 
-	private void OnCancelPressed(){
-		PanelContainer.Visible = false;
+	private void OnAreaSelectClosed(){
 		Player.IsPlayerMovable = true;
 		if (IsPlayerInArea)
 		{
 			Prompt.Visible = true;
-		}
-	}
-
-	private void OnPP4Pressed(){
-		Error result = GetTree().ChangeSceneToFile("res://scenes/game_loop.tscn");
-		if (result != Error.Ok){
-			GD.PushError($"Can't Open Game Loop: {result}");
 		}
 	}
 }
